@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import DailyPumpReport, WeeklySocialMediaReport, GlimpsesOfTheMonth
+from .models import (
+    DailyPumpReport,
+    WeeklySocialMediaReport,
+    GlimpsesOfTheMonth,
+    ReportCollageGroup,
+    MonthlyReportContent,
+)
 
 
 @admin.register(DailyPumpReport)
@@ -18,6 +24,26 @@ class WeeklySocialMediaReportAdmin(admin.ModelAdmin):
 
 @admin.register(GlimpsesOfTheMonth)
 class GlimpsesOfTheMonthAdmin(admin.ModelAdmin):
-    list_display = ("month", "year", "location", "image_name", "added_by", "created_at")
+    list_display = ("month", "year", "location", "title", "added_by", "updated_at")
     list_filter = ("location", "year", "month")
-    search_fields = ("image_name",)
+    search_fields = ("title", "location")
+
+
+@admin.register(ReportCollageGroup)
+class ReportCollageGroupAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "section_type",
+        "location",
+        "month",
+        "year",
+        "sort_order",
+        "created_at",
+    )
+    list_filter = ("section_type", "location", "year", "month")
+
+
+@admin.register(MonthlyReportContent)
+class MonthlyReportContentAdmin(admin.ModelAdmin):
+    list_display = ("month", "year", "added_by", "updated_at")
+    list_filter = ("year", "month")
