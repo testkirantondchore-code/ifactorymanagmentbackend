@@ -104,6 +104,5 @@ class VisitorViewSet(viewsets.ModelViewSet):
         
         writer = csv.writer(response)
         writer.writerow(['first_name', 'last_name', 'email', 'phone', 'company', 'categories', 'industry_type', 'photograph_link'])
-        writer.writerow(['John', 'Doe', 'john@example.com', '9876543210', 'Tata Motors', 'Industrial', 'MSME', 'http://link-to-photo.com'])
         
         return response

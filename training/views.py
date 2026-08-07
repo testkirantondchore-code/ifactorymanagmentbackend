@@ -71,7 +71,6 @@ class TrainingViewSet(viewsets.ModelViewSet):
         response['Content-Disposition'] = 'attachment; filename="training_template.csv"'
         writer = csv.writer(response)
         writer.writerow(['Date', 'Organization', 'Category', 'Industry', 'Person Name', 'Phone', 'Email', 'Photograph Link'])
-        writer.writerow(['2024-03-01', 'Tata Motors', 'Industrial', 'MSME', 'John Doe', '9876543210', 'john@example.com', 'http://link-to-photo.com'])
         return response
 
 class DigitalMaturityAssessmentViewSet(viewsets.ModelViewSet):
@@ -134,5 +133,4 @@ class DigitalMaturityAssessmentViewSet(viewsets.ModelViewSet):
         response['Content-Disposition'] = 'attachment; filename="assessment_template.csv"'
         writer = csv.writer(response)
         writer.writerow(['Organization', 'Activity Type', 'Total Assessments', 'Total Impact', 'Photograph Link'])
-        writer.writerow(['Tata Steel', 'Maturity Scan', 5, 'High', 'http://link-to-photo.com'])
         return response
